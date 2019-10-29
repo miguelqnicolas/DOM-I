@@ -6,8 +6,7 @@ const siteContent = {
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
-    "img-src": "img/logo.png",
-    "addition": "I was added!"
+    "img-src": "img/logo.png"
   },
   "cta": {
     "h1": "DOM<br> Is<br> Awesome",
@@ -69,17 +68,26 @@ const navLink6 = document.querySelector("nav a:nth-child(6)");
 navLink6.innerHTML = siteContent["nav"]["nav-item-6"];
 navLink6.style.color = "green";
 
-const appendChild = document.querySelector("nav a");
-appendChild.appendChild(siteContent["nav"]["addition"]);
+// append and prepend
+
+const addition = document.createElement("a");
+addition.textContent = "I was added!";
+
+const nav = document.querySelector("nav");
+nav.prepend(addition);
+
+// can only do one at once... huh
+
+const additionClone = addition.cloneNode(true);
+nav.appendChild(additionClone);
 
 // first section
 
-// difference between innerhtml and textcontent?
+// difference between innerhtml and textcontent? innerText
 
 //centered cta
 
 const cta = document.querySelector(".cta");
-cta.display = 'flex';
 cta.style.justifyContent = 'center';
 
 // howcome first one works but other does not
